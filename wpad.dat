@@ -1,0 +1,41 @@
+/*!
+ * @file wpad.dat (aka proxy.pac)
+ * @description HTTP proxy configuration file
+ * @version v1.0
+ * @author Innovarew <innovarew.solutions (at) gmail (dot) com> (c) Copyright 2019.
+ * @copyright (C) 2019 Innovarew Solutions. All Rights Reserved.
+ * @url https://github.com/innovarew/
+ *
+ * Contact us if you are interested in using our products and services.
+ *
+ * Changelog:
+ *
+ * [dd/mm/yyyy]      [author]
+ * [brief description]
+ *
+ * 05/03/2018        innovarew
+ * v1.0 Initial version
+ *
+ */
+
+/*
+ * Usage:
+ *
+ * - Set wpad.dat MIME filetype to "application/x-javascript-config"
+ * - Set your localDomain/proxyUrl settings below at FindProxyForUrl()
+ * - Place the file at http://wpad.yourdomain/wpad.dat
+ * - Enforce the wpad.pdat by:
+ *   - Creating a DHCP 252 config option
+ *   - Creating a DNS wpad.yourdomain
+ *   - Creating a GPO on your Active Directory server.
+ */
+
+function FindProxyForURL(url, host)
+{
+    /* Configure below your domain and proxy settings */
+    var localDomain = "YOUR-DOMAIN";
+    var proxyUrl = 'PROXY YOUR-IP:3128';
+
+    /* Proxy all the rest */
+    return proxyUrl;
+}
